@@ -1,0 +1,15 @@
+filebeat.inputs:
+- type: filestream
+  enabled: true
+  paths:
+    - "/opt/zeek/logs/current/*"
+output.logstash:
+  enabled: true
+  hosts: ["172.16.0.132:5044"]
+
+logging.to_files: true
+logging.files:
+  path: /var/log/filebeat
+  name: filebeat
+  keepfiles: 7
+  permissions: 0644
